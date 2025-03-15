@@ -1,71 +1,44 @@
-(function(){
-  // Vertical Timeline - by CodyHouse.co
-	function VerticalTimeline( element ) {
-		this.element = element;
-		this.blocks = this.element.getElementsByClassName("cd-timeline__block");
-		this.images = this.element.getElementsByClassName("cd-timeline__img");
-		this.contents = this.element.getElementsByClassName("cd-timeline__content");
-		this.offset = 0.8;
-		this.hideBlocks();
-	};
+document.addEventListener("DOMContentLoaded", function () {
+    const phases = ["first-phase", "second-phase", "third-phase"];
+    let currentIndex = 0;
 
-	VerticalTimeline.prototype.hideBlocks = function() {
-		if ( !"classList" in document.documentElement ) {
-			return; // no animation on older browsers
-		}
-		//hide timeline blocks which are outside the viewport
-		var self = this;
-		for( var i = 0; i < this.blocks.length; i++) {
-			(function(i){
-				if( self.blocks[i].getBoundingClientRect().top > window.innerHeight*self.offset ) {
-					self.images[i].classList.add("cd-timeline__img--hidden"); 
-					self.contents[i].classList.add("cd-timeline__content--hidden"); 
-				}
-			})(i);
-		}
-	};
+    function showPhase(index) {
+        const element = document.querySelector(`.${phases[index]}`);
+        element.style.display = "block";
+        element.style.opacity = 0;
+        setTimeout(() => {
+            element.style.transition = "opacity 1s";
+            element.style.opacity = 1;
+        }, 10);
+    }
 
-	VerticalTimeline.prototype.showBlocks = function() {
-		if ( ! "classList" in document.documentElement ) {
-			return;
-		}
-		var self = this;
-		for( var i = 0; i < this.blocks.length; i++) {
-			(function(i){
-				if( self.contents[i].classList.contains("cd-timeline__content--hidden") && self.blocks[i].getBoundingClientRect().top <= window.innerHeight*self.offset ) {
-					// add bounce-in animation
-					self.images[i].classList.add("cd-timeline__img--bounce-in");
-					self.contents[i].classList.add("cd-timeline__content--bounce-in");
-					self.images[i].classList.remove("cd-timeline__img--hidden");
-					self.contents[i].classList.remove("cd-timeline__content--hidden");
-				}
-			})(i);
-		}
-	};
+    function hidePhase(index, callback) {
+        const element = document.querySelector(`.${phases[index]}`);
+        element.style.transition = "opacity 1s";
+        element.style.opacity = 0;
+        setTimeout(() => {
+            element.style.display = "none";
+            callback();
+        }, 1000);
+    }
 
-	var verticalTimelines = document.getElementsByClassName("js-cd-timeline"),
-		verticalTimelinesArray = [],
-		scrolling = false;
-	if( verticalTimelines.length > 0 ) {
-		for( var i = 0; i < verticalTimelines.length; i++) {
-			(function(i){
-				verticalTimelinesArray.push(new VerticalTimeline(verticalTimelines[i]));
-			})(i);
-		}
+    function nextPhase() {
+        if (currentIndex < phases.length - 1) {
+            hidePhase(currentIndex, () => {
+                currentIndex++;
+                showPhase(currentIndex);
+            });
+        }
+    }
 
-		//show timeline blocks on scrolling
-		window.addEventListener("scroll", function(event) {
-			if( !scrolling ) {
-				scrolling = true;
-				(!window.requestAnimationFrame) ? setTimeout(checkTimelineScroll, 250) : window.requestAnimationFrame(checkTimelineScroll);
-			}
-		});
-	}
+    // Initialize by showing the first phase
+    showPhase(currentIndex);
 
-	function checkTimelineScroll() {
-		verticalTimelinesArray.forEach(function(timeline){
-			timeline.showBlocks();
-		});
-		scrolling = false;
-	};
-})();
+    // Cycle through the phases, stopping at third-phase
+    const interval = setInterval(() => {
+        nextPhase();
+        if (currentIndex === phases.length - 1) {
+            clearInterval(interval);
+        }
+    }, 6000);
+});
