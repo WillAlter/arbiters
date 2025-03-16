@@ -7,19 +7,19 @@ document.addEventListener("DOMContentLoaded", function () {
         element.style.display = "block";
         element.style.opacity = 0;
         setTimeout(() => {
-            element.style.transition = "opacity 1s";
+            element.style.transition = "opacity 2s";
             element.style.opacity = 1;
         }, 10);
     }
 
     function hidePhase(index, callback) {
         const element = document.querySelector(`.${phases[index]}`);
-        element.style.transition = "opacity 1s";
+        element.style.transition = "opacity 2s";
         element.style.opacity = 0;
         setTimeout(() => {
             element.style.display = "none";
             callback();
-        }, 1000);
+        }, 1500);
     }
 
     function nextPhase() {
@@ -40,5 +40,5 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentIndex === phases.length - 1) {
             clearInterval(interval);
         }
-    }, 6000);
+    }, 12000);
 });

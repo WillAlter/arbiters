@@ -4,20 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  <link rel="stylesheet" href="CSS\style2.css">
-  <script src="JS\libraries\main.js"></script>
-  <script src="JS\libraries\bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="CSS\style.css">
   <link rel="stylesheet" href="CSS\bootstrap.min.css">
   <link rel="icon" type="image/x-icon" href="Crossroads.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+  <script src="JS\libraries\stars.js"></script>
+  <script src="JS\libraries\main.js"></script>
+  <script src="JS\libraries\bootstrap.min.js"></script>
+
   <title>Arbiters of the New World</title>
 </head>
 <body>
  
-  <main class="container" role="main">
+  <main class="introMain" role="main">
     <div class="container text-center">
 
       <div class="first-phase">
@@ -25,55 +29,58 @@
       </div>
       
       <div class="second-phase">
-        <h2 class="presenting">In loving memory of...</h2>
-        <div class="container text-center">
+        <h1 class="presenting">In loving memory of...</h1>
+        <div class="container text-center presentingGrid">
           <div class="row">
             <div class="col character cadenza">
-              <p>Cadenza</p>
+              <img src="cadenza.png" alt="">
+              <p>The Fowl-Feathered</p>
             </div>
             <div class="col character endhal">
-              <p>Endhal</p>
+              <img src="endhal.png" alt="">
+              <p>The Wandering Vermin</p>
             </div>
             <div class="col character iszyre">
-              <p>Iszyre</p>
+              <img src="iszyre.png" alt="">
+              <p>The Cowardly Ant</p>
             </div>
           </div>
           <div class="row">
             <div class="col character syn">
-              <p>Syn</p>
+              <img src="syn.png" alt="Syn.">
+              <p class="character-title">The Solitary Moray</p>
             </div>
             <div class="col character xander">
-              <p>Voxanderthol</p>
+              <img src="xander.png" alt="">
+              <p>The Spun Spider</p>
             </div>
             <div class="col character yarros">
-              <p>Yarros</p>
+              <img src="yarrostemp.png" alt="">
+              <p>And ???</p>
             </div>
           </div>
         </div>
+        <h3>Welcome all, to a tale of sabbath and separation.</h3>
+        <h3>May your passing bear fruit... in this land of decay.</h3>
       </div>
 
       <div class="third-phase">
-        <h2>Arbiters of the New World</h2>
-        <hr>
-        <div class="container text-center">
-          <div class="row">
-            <div class="col">
-              <a href="">Campaign Chronology</a>
-            </div>
-            <div class="col">
-              <a href="">Corpse Calendar</a>
-            </div>
-            <div class="col">
-              <a href="">Miscellany</a>
-            </div>
-          </div>
-        </div>
+        <nav class="navbar">
+          <h1 class="title-h1">Arbiters of the New World</h1>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="chronology.html">Campaign Chronology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="soliloquy.html">Cadaver's Soliloquy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="miscellany.html">Discovered Miscellany</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </main>
-
-
-
-<audio src="" style="display: none;"></audio>
 </body>
 </html>
