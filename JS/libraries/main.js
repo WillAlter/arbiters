@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         element.style.display = "block";
         element.style.opacity = 0;
         setTimeout(() => {
-            element.style.transition = "opacity 2s";
+            element.style.transition = "opacity 3s";
             element.style.opacity = 1;
         }, 10);
     }
