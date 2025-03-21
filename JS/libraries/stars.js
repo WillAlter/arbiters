@@ -55,3 +55,9 @@ class Star {
     }
   }
 }
+
+// Resize the canvas when the
+// browser's size changes.
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
