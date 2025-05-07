@@ -1,0 +1,88 @@
+div.npc-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+main {
+    padding-bottom: 2rem;
+}
+
+section.npc-section {
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    background-color: #22222299;
+    width: 80%;
+    margin-top: 8rem;
+
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        h3.npc-name {
+            color: white;
+            text-align: center;
+            font-size: 2.5rem;
+            position: relative;
+
+            &.dead {
+                color: red;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 100px;
+                height: 20px;
+                transform: skew(-12deg) translateX(-50%);
+                background: rgba($soft-orange,0.8);
+                z-index: -1;
+            }
+        }
+
+        div.npc-information {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .npc-quote {
+            text-align: center;
+            font-size: 16px;
+            padding: 0 6rem 1.5rem 6rem;
+        }
+
+        .image-column{
+            display: flex;
+            justify-content: flex-end;
+
+            .portrait {
+                img {
+                    max-width: 200px;
+                    transform: rotate(5deg) scale(1.5);
+                    position: relative;
+                    display: block;
+                }
+            }
+        }
+
+        .image-column-reverse {
+            display:flex;
+            justify-content: flex-start;
+
+            .portrait {
+                img {
+                    max-width: 200px;
+                    transform: rotate(-5deg) scale(1.5);
+                    position: relative;
+                    display: block;
+                }
+            }
+        }
+
+    }
+}
