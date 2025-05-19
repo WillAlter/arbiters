@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shadows+Into+Light+Two&display=swap");
 .poppins-thin {
   font-family: "Poppins", sans-serif;
@@ -113,15 +114,22 @@
   font-style: normal;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   color: white;
 }
-html h1, html h2, html li, body h1, body h2, body li {
+html h1,
+html h2,
+html li,
+body h1,
+body h2,
+body li {
   color: white;
 }
-html h1.campaign-h1, body h1.campaign-h1 {
+html h1.campaign-h1,
+body h1.campaign-h1 {
   margin: 2rem 0 1rem 0;
   display: flex;
   justify-content: center;
@@ -176,8 +184,62 @@ canvas {
 .date-section {
   /* border: 2px solid white; */
   border-radius: 4px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   background-color: rgba(34, 34, 34, 0.6);
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+.date-section.no-title {
+  padding-top: 3rem;
+}
+.date-section .quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.date-section .quote-container .famed-quote-box {
+  width: 800px;
+  margin: 2rem 0;
+  padding-top: 1rem;
+  border-left: solid 1px #FDAF7B;
+  background-color: rgba(255, 255, 255, 0.062745098);
+}
+.date-section .quote-container .famed-quote-box p {
+  padding: 0 1rem;
+}
+.date-section .quote-container .famed-quote-box p > img {
+  width: 50px;
+  margin: 0 0.5rem 0 0;
+  border-radius: 50%;
+}
+.date-section .quote-container .name-xander {
+  color: #FFC0CB;
+}
+.date-section .quote-container .name-endhal {
+  color: #baf2ef;
+}
+.date-section .hr-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-section:before {
+  content: "";
+  background-image: url("../rose100.png");
+  display: block;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 10;
+  right: -20px;
+  top: -20px;
+}
+.date-section ul > ol > li {
+  font-size: 1rem;
+  padding: 0 0 1rem 0;
+}
+.date-section ol > li::marker {
+  color: #FDAF7B;
 }
 .date-section h2 {
   padding: 3rem 0 2rem 0;
@@ -186,28 +248,85 @@ canvas {
   align-items: center;
   font-family: "Poppins", sans-serif;
 }
+.date-section h2.hall-of-fame-title {
+  padding-bottom: 0;
+}
+.date-section h2#chapter-title {
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 2.5rem;
+  padding-bottom: 0;
+}
+.date-section h2.first-date-header {
+  padding-top: 0.5rem;
+}
 .date-section span {
   color: #FDAF7B;
   font-style: italic;
 }
-.date-section ul, .date-section ol {
+.date-section ul,
+.date-section ol {
   padding: 0 5rem;
 }
-.date-section ul li, .date-section ol li {
+.date-section ul li,
+.date-section ol li {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 22px;
+  font-size: 1.25rem;
   padding: 0 1rem 1.5rem 1rem;
 }
-.date-section ul li a, .date-section ol li a {
+.date-section ul li a,
+.date-section ol li a {
   color: white;
 }
-.date-section ul li strong, .date-section ol li strong {
+.date-section ul li strong,
+.date-section ol li strong {
   color: #824D74;
 }
-.date-section ul li:last-child, .date-section ol li:last-child {
-  padding-bottom: 3rem;
+.date-section ul > li::marker {
+  color: #FDAF7B;
+}
+
+.navbar-nav .dropdown-menu.arbiters-menu {
+  position: absolute;
+  width: 100%;
+}
+
+/* Reset */
+*:before,
+*:after {
+  content: "";
+}
+
+hr.dots {
+  margin: 0;
+  border: 0;
+  text-align: center;
+  opacity: 1;
+}
+hr.dots:before {
+  content: "••••••";
+  font-size: 50px;
+  color: #FDAF7B;
+}
+
+.flair {
+  width: 65%;
+  height: 30px;
+  border-style: solid;
+  border-color: hsla(0, 0%, 100%, 0.9);
+  border-width: 5px 0 0 0;
+  border-radius: 15px;
+}
+
+.flair:before {
+  display: block;
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: hsla(0, 0%, 100%, 0.9);
+  border-width: 0 0 2px 0;
+  border-radius: 15px;
 }
 
 .second-phase {
@@ -324,7 +443,7 @@ section.npc-section .row h3.npc-name {
   position: relative;
 }
 section.npc-section .row h3.npc-name.dead {
-  color: red;
+  color: #990000;
 }
 section.npc-section .row h3.npc-name::before {
   content: "";
@@ -355,6 +474,7 @@ section.npc-section .row .image-column .portrait img {
   transform: rotate(5deg) scale(1.5);
   position: relative;
   display: block;
+  filter: drop-shadow(-5px 2px 5px rgba(0, 0, 0, 0.5));
 }
 section.npc-section .row .image-column-reverse {
   display: flex;
@@ -365,4 +485,5 @@ section.npc-section .row .image-column-reverse .portrait img {
   transform: rotate(-5deg) scale(1.5);
   position: relative;
   display: block;
+  filter: drop-shadow(5px 2px 5px rgba(0, 0, 0, 0.5));
 }/*# sourceMappingURL=style.css.map */

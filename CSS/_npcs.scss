@@ -29,7 +29,7 @@ section.npc-section {
             position: relative;
 
             &.dead {
-                color: red;
+                color: #990000;
             }
 
             &::before {
@@ -66,6 +66,7 @@ section.npc-section {
                     transform: rotate(5deg) scale(1.5);
                     position: relative;
                     display: block;
+                    filter: drop-shadow(-5px 2px 5px rgba(0, 0, 0, 0.5));
                 }
             }
         }
@@ -80,6 +81,7 @@ section.npc-section {
                     transform: rotate(-5deg) scale(1.5);
                     position: relative;
                     display: block;
+                    filter: drop-shadow(5px 2px 5px rgba(0, 0, 0, 0.5));
                 }
             }
         }

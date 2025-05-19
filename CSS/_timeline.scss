@@ -1,9 +1,12 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     color: white;
 
-    h1, h2, li {
+    h1,
+    h2,
+    li {
         color: white;
     }
 
@@ -57,18 +60,85 @@ ul.navbar-nav {
 
 canvas {
     position: fixed !important;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:-1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .date-section {
     /* border: 2px solid white; */
     border-radius: 4px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     background-color: #22222299;
+    padding-bottom: 1.5rem;
+
+    &.no-title {
+        padding-top: 3rem;
+    }
+
+    .quote-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+            .famed-quote-box {
+                width: 800px;
+                margin: 2rem 0;
+                padding-top: 1rem;
+                border-left: solid 1px $soft-orange;
+                background-color: #ffffff10;
+
+                p {
+                    padding: 0 1rem;
+                }
+
+                p>img {
+                    width: 50px;
+                    margin: 0 0.5rem 0 0;
+                    border-radius: 50%;
+                }
+            }
+
+        .name-xander {
+            color: #FFC0CB;
+        }
+
+        .name-endhal {
+            color: #baf2ef;
+        }
+    }
+
+    .hr-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    position: relative;
+
+    &:before {
+        content: "";
+        background-image: url("../rose100.png");
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: 10;
+        right: -20px;
+        top: -20px;
+    }
+
+    ul>ol>li {
+
+        font-size: 1rem;
+        padding: 0 0 1rem 0;
+    }
+
+    ol>li::marker {
+        color: $soft-orange;
+    }
 
 
     h2 {
@@ -77,6 +147,20 @@ canvas {
         justify-content: center;
         align-items: center;
         font-family: "Poppins", sans-serif;
+
+        &.hall-of-fame-title {
+            padding-bottom: 0;
+        }
+
+        &#chapter-title {
+            font-family: "Shadows Into Light Two", cursive;
+            font-size: 2.5rem;
+            padding-bottom: 0;
+        }
+
+        &.first-date-header {
+            padding-top: 0.5rem;
+        }
     }
 
     span {
@@ -84,14 +168,16 @@ canvas {
         font-style: italic;
     }
 
-    ul, ol {
+    ul,
+    ol {
 
         padding: 0 5rem;
+
         li {
             font-family: "Poppins", sans-serif;
             font-weight: 400;
             font-style: normal;
-            font-size: 22px;
+            font-size: 1.25rem;
             padding: 0 1rem 1.5rem 1rem;
 
             a {
@@ -102,9 +188,60 @@ canvas {
                 color: $purple;
             }
 
-            &:last-child {
-                padding-bottom: 3rem;
-            }
         }
     }
+
+    ul>li::marker {
+        color: $soft-orange;
+    }
+}
+
+.navbar-nav {
+    .dropdown-menu {
+        &.arbiters-menu {
+            position: absolute;
+            width: 100%;
+        }
+    }
+}
+
+/* Reset */
+*:before,
+*:after {
+    content: '';
+}
+
+hr {
+
+    &.dots {
+            margin: 0;
+            border: 0;
+            text-align: center;
+            opacity: 1;
+    
+            &:before {
+                content: "\2022 \2022 \2022 \2022 \2022 \2022";
+                font-size: 50px;
+                color: $soft-orange;
+            }
+        }
+}
+
+.flair {
+    width: 65%;
+    height: 30px;
+    border-style: solid;
+    border-color: hsla(0, 0%, 100%, 0.9);
+    border-width: 5px 0 0 0;
+    border-radius: 15px;
+}
+
+.flair:before {
+    display: block;
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: hsla(0, 0%, 100%, 0.9);
+    border-width: 0 0 2px 0;
+    border-radius: 15px;
 }
