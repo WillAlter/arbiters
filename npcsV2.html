@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPCs V2</title>
+
+    <link rel='stylesheet' type='text/css'
+        href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+    <link rel="stylesheet" href="CSS\style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="Crossroads.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
+    <script src="JS\libraries\stars.js"></script>
+    <script src="JS\libraries\npcs.js"></script>
+</head>
+
+<body>
+    <main role="main" class="container">
+        <nav class="navbar">
+            <h1 class="campaign-h1">Arbiters of the New World</h1>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Campaign Chronology
+                    </a>
+                    <ul class="dropdown-menu arbiters-menu">
+                        <li><a class="dropdown-item" href="chronology.html">Chapter 1: Orphans of the Sands</a></li>
+                        <li><a class="dropdown-item" href="chronology2.html">Chapter 2: Meetings at Crossroads</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="soliloquy.html">Cadaver's Soliloquy</a>
+                </li>
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Within Al Ahzoth
+                    </a>
+                    <ul class="dropdown-menu arbiters-menu">
+                        <li><a class="dropdown-item active" href="npcs.html">People</a></li>
+                        <li><a class="dropdown-item" href="miscellany.html">Discovered Miscellany</a></li>
+                        <li><a class="dropdown-item" href="halloffame.html">Hall of Fame</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="npc-wrapper">
+
+            <h2>The Cadaver's Inhabitants</h2>
+
+            <div class="form-container">
+                <div class="row">
+                    <div class="col-6 my-2">
+                        <form>
+                            <label for="filter">Sort by Region</label>
+                            <select name="filter" id="region-filter-select">
+                                <option value="">All</option>
+                                <option value="Hartshorn">Hartshorn</option>
+                                <option value="City of Crossroads">City of Crossroads</option>
+                                <option value="Mayall">Mayall</option>
+                                <option value="Pendrath">Pendrath</option>
+                                <option value="Chthonian Wetlands">Chthonian Wetlands</option>
+                                <option value="Yetzirah">Yetzirah</option>
+                                <option value="Belladonna of the Twin Lakes">Belladonna of the Twin Lakes</option>
+                                <option value="Warnann Forest">Warnann Forest</option>
+                                <option value="Sardior Range">Sardior Range</option>
+                                <option value="Roaming">Roaming</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="col-6 my-2">
+                        <form>
+                            <label for="faction-filter">Sort by Faction</label>
+                            <select name="faction-filter" id="faction-filter-select">
+                                <option value="">All</option>
+                                <option value="Trismegistus">Trismegistus</option>
+                                <option value="Broomsedge">Broomsedge</option>
+                                <option value="Edelweiss">Edelweiss</option>
+                                <option value="Alchemist Association">Alchemist Association</option>
+                                <option value="Brotherhood of the Blazing Fox">Brotherhood of the Blazing Fox</option>
+                                <option value="Aeternum Institute">Aeternum Institute</option>
+                                <option value="Pendrath Nobility">Pendrath Nobility</option>
+                                <option value="Mortal Advent">Mortal Advent</option>
+                                <option value="Independent">Independent</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <form>
+                            <label for="role-filter">Sort by Role</label>
+                            <select name="role-filter" id="role-filter-select">
+                                <option value="">All</option>
+                                <option value="Anchor">Anchor</option>
+                                <option value="Adventurer">Adventurer</option>
+                                <option value="Mercenary">Mercenary</option>
+                                <option value="Regional Armed Forces">Regional Armed Forces</option>
+                                <option value="Favored">Favored</option>
+                                <option value="Noble">Noble</option>
+                                <option value="Common Folk">Common Folk</option>
+                                <option value="High Elf">High Elf</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <form>
+                            <label for="player-filter">Sort by Player Relation</label>
+                            <select name="player-filter" id="player-filter-select">
+                                <option value="">All</option>
+                                <option value="Cadenza">Cadenza</option>
+                                <option value="Endhal">Endhal</option>
+                                <option value="Iszyre">Iszyre</option>
+                                <option value="Syn">Syn</option>
+                                <option value="Voxanderthol">Voxanderthol</option>
+                                <option value="Yarros">Yarros</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <section class="npc-section" data-tags="Hartshorn">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\adalar.png" alt="Adalar."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Adalar Warder</h3>
+                            <p class="npc-quote"><em>"I assure you I am here precisely because I wish to."</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">N/A</span></p>
+                                </div>
+                                <p class="npc-description">Adalar Warder is a drunkard and former convict that the party
+                                    met in West Rubedo. He is the lifelong friend of Mammel.</p>
+                                <p class="last-seen">Last seen: Northern Hartshorn Desert</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Roaming, Lark's Party, Adventurer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\adard.png" alt="Adard."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Adard, the Fighter</h3>
+                            <p class="npc-quote"><em>“Ultimately, that mining town grew far too small.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Roaming</span> <span class="faction-tag">Lark's
+                                            Party</span> <span class="role-tag">Adventurer</span></p>
+                                </div>
+                                <p class="npc-description">Adard is a colisseum fighter.</p>
+                                <p class="last-seen">Last seen: City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Roaming, Lark's Party, Adventurer, Noble">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\adelaide.jpg" alt="Adelaide."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Adelaide Beryl</h3>
+                            <p class="npc-quote"><em>“Well met, I am Adelaide, interim mayor of West Rubedo.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Roaming</span> <span class="faction-tag">Lark's
+                                            Party</span> <span class="role-tag">Adventurer</span> <span
+                                            class="role-tag">Noble</span></p>
+                                </div>
+                                <p class="npc-description">Adelaide was the former interim mayor of West Rubedo, as well
+                                    as the daughter of the actual mayor, who resided in the eastern half. Suffering from
+                                    a severe case of wanderlust, she set off in the dead of night and joined Lark on his
+                                    adventures.</p>
+                                <p class="last-seen">Last seen: City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Mercenary, Independent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\adra.png" alt="Adra."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Adra the Turbulent</h3>
+                            <p class="npc-quote"><em>“...”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="faction-tag">Independent</span> <span
+                                            class="role-tag">Mercenary</span></p>
+                                </div>
+                                <p class="npc-description">Adra was a mercenary and bodyguard who took part in
+                                    investigating the Mist Engine's rapid development prior to its maiden voyage some 30
+                                    years ago. Hired by Professor Gregor, she and Heinrich Swiftfellow are the only
+                                    members of that group who made it out of Agate Lab with their freedom.</p>
+                                <p class="last-seen">Last seen: Oasizh, 30 years ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Mercenary, Criminal, Oasizh, Hartshorn, Independent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\aelvina.png" alt="Aelvina."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Aelvina</h3>
+                            <p class="npc-quote"><em>“Voxanderthol, was it? Very well, I’ll be your contact down
+                                    under.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span
+                                            class="faction-tag">Independent</span> <span
+                                            class="role-tag">Mercenary</span> <span class="role-tag">Criminal</span></p>
+                                </div>
+                                <p class="npc-description">Aelvina is a respected criminal in Oasizh's underbelly. She
+                                    runs the operation under Saccharine Lane, and became Voxanderthol's criminal contact
+                                    after taking a liking to him.</p>
+                                <p class="last-seen">Last seen: Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Alchemist Association, Researcher, Iszyre">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\aelik.jpg" alt="Aelik."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Aelik</h3>
+                            <p class="npc-quote"><em>“Iszyre... are you certain this is safe?”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Alchemist Association</span> <span
+                                            class="role-tag">Researcher</span> <span class="player-tag">Iszyre</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Aelvina is a respected criminal in Oasizh's underbelly. She
+                                    runs the operation under Saccharine Lane, and became Voxanderthol's criminal contact
+                                    after taking a liking to him.</p>
+                                <p class="last-seen">Last seen: Oasizh, 30 years ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Independent, Common Folk">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\alf-bryndel.jpg" alt="Alf-Bryndel."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Alf-Bryndel</h3>
+                            <p class="npc-quote"><em>“Thank you for all your help, ser River.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Independent</span> <span class="role-tag">Common
+                                            Folk</span></p>
+                                </div>
+                                <p class="npc-description">Alf-Bryndel is the mining chief of West Rubedo. He spent the
+                                    better part of his career trying to revitalize the Rubedan mines, and was pretty
+                                    successful prior to the recent breakout incident.</p>
+                                <p class="last-seen">Last seen: West Rubedo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Independent, Common Folk">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\alf-delan.jpg" alt="Alf-Delan."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Alf-Delan</h3>
+                            <p class="npc-quote"><em>“Woah! Are you the one who beat Adard?”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Independent</span> <span class="role-tag">Common
+                                            Folk</span></p>
+                                </div>
+                                <p class="npc-description">Alf-Delan is a young orphan of the desert residing in the
+                                    Rubedo Orphanage and as such, was given the 'Alf' name. He admires strong fighters,
+                                    and yearns to become one himself.</p>
+                                <p class="last-seen">Last seen: West Rubedo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Independent, Common Folk">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\alf-lahna.jpg" alt="Alf-Lahna."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Alf-Lahna</h3>
+                            <p class="npc-quote"><em>“The method which suits you best is a reflection of your favored
+                                    senses.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Independent</span> <span class="role-tag">Common
+                                            Folk</span></p>
+                                </div>
+                                <p class="npc-description">Alf-Lahna is a renowned appraiser of artefacts residing in
+                                    West Rubedo. As a former tenant of the Rubedo orphanage, she also bears the name
+                                    'Alf'. She once guided Endhal, Iszyre and Cadenza on how to appraise their
+                                    artefacts. </p>
+                                <p class="last-seen">Last seen: West Rubedo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Common Folk, Trismegistus">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\alfie.png" alt="Alfie."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Alf-Yhlla (Alfie)</h3>
+                            <p class="npc-quote"><em>“Heya! I’m Alfie; I’ll be your guide on the way to Rubedo.”</em>
+                            </p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Trismegistus</span> <span class="role-tag">Common
+                                            Folk</span></p>
+                                </div>
+                                <p class="npc-description">Alfie is a caravan runner and leader specializing in the
+                                    ever-changing desert routes between Genesizh and West Rubedo. Her convoy once gave
+                                    passage to the party on their journey east.</p>
+                                <p class="last-seen">Last seen: West Rubedo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Oasizh, Noble, Artist, Cadenza, Independent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\scalesong.jpg" alt="Scalesong."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Sir Antonin Scalesong</h3>
+                            <p class="npc-quote"><em>“My Haria… my Echoes, is but the first of four.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span
+                                            class="faction-tag">Independent</span> <span class="role-tag">Noble</span>
+                                        <span class="role-tag">Artist</span> <span class="player-tag">Cadenza</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Sir Antonin Scalesong is a rising star among the musicians of
+                                    Oasizh, and his noble name now stretches across the desert. He has been performing
+                                    for the Oasizh Colisseum for the past year. He has also been keeping an eye out for
+                                    his old friend Cadenza, and regularly communicating with Solara Sibelius.</p>
+                                <p class="last-seen">Last seen: Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Common Folk, Criminal">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\bluebeak.jpg" alt="Bluebeak."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Bluebeak</h3>
+                            <p class="npc-quote"><em>“Be careful. I chanced upon it, but I definitely saw your name in
+                                    the Black Records.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span class="role-tag">Common
+                                            Folk</span> <span class="role-tag">Criminal</span></p>
+                                </div>
+                                <p class="npc-description">Bluebeak is a former criminal now under the employ of Mayor
+                                    Beryl of Rubedo. With some underground savvy, he briefly came across a copy of the
+                                    Black Records being passed around and warned Endhal of its existence.</p>
+                                <p class="last-seen">Last seen: Mist Engine bound to Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Common Folk">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\brynn.jpg" alt="Brynn."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Brynn Stormhelm</h3>
+                            <p class="npc-quote"><em>“Alright girlie, I’m game. We’ll make a helmswoman out of you
+                                    yet.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">City of Crossroads</span> <span
+                                            class="role-tag">Common Folk</span></p>
+                                </div>
+                                <p class="npc-description">Brynn Stormhelm is the freshly retired captain of the Iron
+                                    Gull. Her last voyage brought the party down the river from the nothern Hartshorn
+                                    Watchtower and down through Morgin's Pass, safely arriving at the City of
+                                    Crossroads.</p>
+                                <p class="last-seen">Last seen: City of Crossroads - Qilin Docks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Mayall, Pendrath, Noble, Pendrath Nobility">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\who.jpg" alt="ChildKing."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">(The) Child King of Pendrath</h3>
+                            <p class="npc-quote"><em>"..."</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Mayall</span> <span
+                                            class="region-tag">Pendrath</span> <span class="faction-tag">Pendrath
+                                            Nobility</span> <span class="role-tag">Noble</span></p>
+                                </div>
+                                <p class="npc-description">The Child King of Pendrath. They have been briefly referenced
+                                    by informants and through an exhibit of their old clothing in the Midnight Gallery
+                                    of the Qilin House of Culture.</p>
+                                <p class="last-seen">Never Seen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Mayall, Pendrath, Noble, Pendrath Nobility">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\constance.jpg" alt="Constance."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Constance</h3>
+                            <p class="npc-quote"><em>“So where is this one going hun?”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span class="role-tag">Common Folk</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Constance is a teller at a Post Office in Oasizh.</p>
+                                <p class="last-seen">Last Seen: Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="City of Crossroads, Anchor, Edelweiss">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\sharpshank.png" alt="Sharpshank."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Darnic Sharpshank</h3>
+                            <p class="npc-quote"><em>“In reality, it is quite simple. I am Edelweiss, and Edelweiss is
+                                    me.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">City of Crossroads</span> <span
+                                            class="faction-tag">Edelweiss</span> <span class="role-tag">Anchor</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Darnic Sharpshank is the Anchor of Edelweiss. He once took a
+                                    liking to Endhal and dragged him through a heavy drinking session. After the party
+                                    visits him in a more official capacity, he reveals his role, as well as Al Ahzoth's
+                                    true nature as the Cadaver of a Lost God.</p>
+                                <p class="last-seen">Last Seen: Edelweiss, City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="City of Crossroads, Anchor, Independent">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\dyorind.png" alt="Constance."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Dyorind</h3>
+                            <p class="npc-quote"><em>“Lad... We dug too deep.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">City of Crossroads</span> <span
+                                            class="faction-tag">Independent</span> <span class="role-tag">Anchor</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Old Dyorind is a retired miner and blacksmith residing in
+                                    East Rubedo. As he was part of the last real mining efforts some 80 years ago, he
+                                    had known a lot of the boys who had passed away down there. He nevertheless deems it
+                                    high time to rekindle the mining efforts, and advocates for it daily.</p>
+                                <p class="last-seen">Last Seen: East Rubedo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="City of Crossroads, Artist, Independent, Common Folk">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\elaine.png" alt="Elaine."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Elaine</h3>
+                            <p class="npc-quote"><em>“Thank you for your kindness! Here is a ballad in your honor!”</em>
+                            </p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">City of Crossroads</span> <span
+                                            class="faction-tag">Independent</span> <span class="role-tag">Artist</span>
+                                        <span class="role-tag">Common Folk</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Elaine is a bubbly and airheaded traveling bard who has been
+                                    performing in the vicinity of the Qilin House of Culture for a few weeks.</p>
+                                <p class="last-seen">Last Seen: City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Oasizh, Brotherhood of the Blazing Fox, Cultist, Syn">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\embermawl.jpg" alt="Embermawl."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name dead">Embermawl</h3>
+                            <p class="npc-quote"><em>“You say we took everything from you… Wrong! From the beginning,
+                                    everything that was given to you, including your future, belonged to the glory of
+                                    our lord… it belonged to MELCHIOR!”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span class="faction-tag">Brotherhood of
+                                            the Blazing Fox</span> <span class="role-tag">Cultist</span> <span
+                                            class="player-tag">Syn</span></p>
+                                </div>
+                                <p class="npc-description">Embermawl of the Propagation was the leader of the
+                                    propagation sect within the Brotherhood of the Blazing Fox. He was petty, vicious
+                                    and overzealous, but performed his duties with brutal efficiency. He was discovered
+                                    to be hiding beneath the Oasizh Greenhouse/Arboretum with the help of the
+                                    Pathfinder, and was killed by the party on the same day.</p>
+                                <p class="last-seen">Last Seen: Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Oasizh, Independent, Regional Armed Forces, Mercenary">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\folish.png" alt="Folish Ruki."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name dead">Folish Ruki</h3>
+                            <p class="npc-quote"><em>“...”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span
+                                            class="faction-tag">Independent</span> <span
+                                            class="role-tag">Mercenary</span> <span class="role-tag">Regional Armed
+                                            Forces</span></p>
+                                </div>
+                                <p class="npc-description">Folish Ruki was a member of the Oasizh City Guard and an
+                                    occasional mercenary. During the events of the Mist Engine investigation, she and
+                                    Kai Shi fell down a large, bottomless hole at the center of the Agate Lab in
+                                    Petrichor Tower.</p>
+                                <p class="last-seen">Last Seen: Oasizh, 30 years ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="City of Crossroads, Broomsedge, Regional Armed Forces">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\geldine.png" alt="Geldine."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Geldine</h3>
+                            <p class="npc-quote"><em>“Come here, sweet things. Come sit by me.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">City of Crossroads</span> <span
+                                            class="faction-tag">Broomsedge</span> <span class="role-tag">Regional Armed
+                                            Forces</span></p>
+                                </div>
+                                <p class="npc-description">Geldine is a dwarven swamp native who is loyal to Broomsedge
+                                    and Psonoe Blackbog. She is a lover of all elves, and is no strange to flirting with
+                                    Endhal and Xander whenever she sees them.</p>
+                                <p class="last-seen">Last Seen: Qilin, City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="City of Crossroads, Broomsedge, Regional Armed Forces">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\gidweline.png" alt="Gidweline."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Gidweline</h3>
+                            <p class="npc-quote"><em>“Pack it up boys, we’re going back!”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Trismegistus</span> <span class="role-tag">Common
+                                            Folk</span></p>
+                                </div>
+                                <p class="npc-description">Gidweline is a caravan runner in the far reaches of the
+                                    Hartshorn Desert, near the frontier settlement of Genesizh. Her and her crew of
+                                    mercenary boys are frequently on the hunt for artefacts burried in the sands on
+                                    behalf of Trismegistus. To note, for most of the party, Gidweline was the first
+                                    person they had seen upon first waking up in the desert.</p>
+                                <p class="last-seen">Last Seen: Qilin, City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Alchemist Association, Researcher, Iszyre">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\gregortemp.png" alt="Gregor."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name dead">Professor Gregor A.</h3>
+                            <p class="npc-quote"><em>“Each step feels heavier than the last: my footfalls toll my final
+                                    hour. I walk up the flimsy, rotted wooden stairs and a noose is fastened around my
+                                    neck.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Alchemist Association</span> <span
+                                            class="role-tag">Researcher</span> <span class="player-tag">Iszyre</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Professor Gregor A. was one of the founding fathers and the
+                                    backbone of the Mist Engine project and initial development. After the incident at
+                                    the Agate Lab, control over the project slipped out of his hands and production of
+                                    the trains was left in the hands of the newly created Trismegistus and its
+                                    investors. Suspicious of its rapid development, he formed a team of mercenaries to
+                                    look into it, ultimately culminating into his incrimination and private hanging.</p>
+                                <p class="last-seen">Last Seen: Oasizh, 30 years ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="City of Crossroads, Broomsedge, Regional Armed Forces">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\grendell.png" alt="Grendell."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Grendell</h3>
+                            <p class="npc-quote"><em>“I see it my dreams... every night, until I paint them.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Roaming</span> <span class="region-tag">City of
+                                            Crossroads</span> <span class="faction-tag">Independent</span> <span
+                                            class="role-tag">Artist</span></p>
+                                </div>
+                                <p class="npc-description">Grendell is a controversial painter whose existing works
+                                    always only consist of one painting, which is displayed in the Midnight Gallery of
+                                    the Qilin House of Culture. Her portfolio includes work such as "The Ultimate
+                                    Being", "The King od Undeath", "The Returning Flare" and most recently, "The Siren
+                                    in the Sky". The party took on one of Zirelios' requests, which was to confirm her
+                                    presence in the City of Crossroads</p>
+                                <p class="last-seen">Last Seen: Qilin, City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section"
+                data-tags="City of Crossroads, Corco Estate, High Elf, Regional Armed Forces, Endhal">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\halafarin.jpg" alt="Halafarin."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Halafarin</h3>
+                            <p class="npc-quote"><em>“Stay safe out there, brother.”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">City of Crossroads</span> <span
+                                            class="faction-tag">Corco Estate</span> <span class="role-tag">Regional
+                                            Armed Forces</span> <span class="role-tag">High Elf</span> <span
+                                            class="player-tag">Endhal</span></p>
+                                </div>
+                                <p class="npc-description">Halafarin is a high elf originating from Endhal's village,
+                                    and appears to be of similar age. Unlike others, he holds no ill will towards
+                                    Endhal, and affectionately refers to him as 'brother'. He is currently wearing a
+                                    full suit of armor and working as a gate guard for the Corco Estate.</p>
+                                <p class="last-seen">Last Seen: Corco Estate, City of Crossroads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Independent, Mercenary, Researcher">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\henry.png" alt="Heinrich."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Heinrich (Henry) Swiftfellow</h3>
+                            <p class="npc-quote"><em>“...”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="faction-tag">Independent</span> <span
+                                            class="role-tag">Mercenary</span> <span class="role-tag">Researcher</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Heinrich Swiftfellow was an archeologist and mercenary of
+                                    some repute. He was recruited by Professor Gregor during the events of the Mist
+                                    Engine investigation and went missing after escaping Agate Lab.</p>
+                                <p class="last-seen">Last Seen: Oasizh, 30 years ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Oasizh, Independent, Common Folk">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\hilde.png" alt="Hilde."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Hilde</h3>
+                            <p class="npc-quote"><em>“You are… Iszyre..? So you were alive after all!”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span
+                                            class="faction-tag">Independent</span> <span class="role-tag">Common
+                                            Folk</span> </p>
+                                </div>
+                                <p class="npc-description">Hilde is a heavyset barmaid that now owns the Heart's Haven
+                                    tavern in Oasizh. She met Iszyre 30 years ago, when her parents still owned the
+                                    place.</p>
+                                <p class="last-seen">Last Seen: Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="City of Crossroads, Corco Estate, Animal">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\horus.jpg" alt="Horus."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name">Horus</h3>
+                            <p class="npc-quote"><em>“...”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">City of Crossroads</span> <span
+                                            class="faction-tag">Corco Estate</span> <span class="role-tag">Animal</span>
+                                    </p>
+                                </div>
+                                <p class="npc-description">Horus is the guardian shoebill of the Corco Estate. He
+                                    watches over the cliffs and intensely judges all hired hands.</p>
+                                <p class="last-seen">Last Seen: Corco Estate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="npc-section" data-tags="Hartshorn, Oasizh, Independent, Mercenary">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\jax.jpg" alt="Jax."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name dead">Jax</h3>
+                            <p class="npc-quote"><em>“...”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span
+                                            class="faction-tag">Independent</span> <span
+                                            class="role-tag">Mercenary</span> </p>
+                                </div>
+                                <p class="npc-description">Jax was a changeling mercenary who was active in smuggling operations along southern desert routes. He was scouted by Knox Brassworth to join Professor Gregor's investigation during the events of the Mist Engine one shot. Jax was ultimately framed, kept in captivity alongside Gregor and privately hung.</p>
+                                <p class="last-seen">Last Seen: Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="npc-section" data-tags="Hartshorn, Oasizh, Independent, Mercenary">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-md-3 portrait-col">
+                            <div class="portrait-container"><img src="npc-portraits\jax.jpg" alt="Jax."
+                                    class="npc-portrait"></div>
+                        </div>
+                        <div class="col-12 col-md-9 npc-info-col">
+                            <h3 class="npc-name dead">Jax</h3>
+                            <p class="npc-quote"><em>“...”</em></p>
+                            <div class="npc-info">
+                                <div class="tags">
+                                    <p>Tags: <span class="region-tag">Hartshorn</span> <span
+                                            class="region-tag">Oasizh</span> <span
+                                            class="faction-tag">Independent</span> <span
+                                            class="role-tag">Mercenary</span> </p>
+                                </div>
+                                <p class="npc-description">Jax was a changeling mercenary who was active in smuggling operations along southern desert routes. He was scouted by Knox Brassworth to join Professor Gregor's investigation during the events of the Mist Engine one shot. Jax was ultimately framed, kept in captivity alongside Gregor and privately hung.</p>
+                                <p class="last-seen">Last Seen: Oasizh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

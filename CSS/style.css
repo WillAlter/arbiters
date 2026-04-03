@@ -187,7 +187,6 @@ canvas {
   margin-bottom: 3rem;
   background-color: rgba(34, 34, 34, 0.6);
   padding-bottom: 1.5rem;
-  position: relative;
 }
 .date-section.no-title {
   padding-top: 3rem;
@@ -222,6 +221,9 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.date-section {
+  position: relative;
 }
 .date-section:before {
   content: "";
@@ -375,8 +377,8 @@ body main.introMain .row:first-child {
   margin-bottom: 2rem;
 }
 body main.introMain .row .col.character {
-  width: 250px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -430,10 +432,9 @@ main {
 
 section.npc-section {
   border-radius: 4px;
-  margin-bottom: 2rem;
   background-color: rgba(34, 34, 34, 0.6);
   width: 80%;
-  margin-top: 8rem;
+  margin-top: 2rem;
 }
 section.npc-section .row {
   display: flex;
@@ -491,4 +492,85 @@ section.npc-section .row .image-column-reverse .portrait img {
   position: relative;
   display: block;
   filter: drop-shadow(5px 2px 5px rgba(0, 0, 0, 0.5));
+}
+
+.form-container {
+  margin-top: 2rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-container label {
+  color: white;
+}
+
+.npc-section {
+  border-radius: 4px;
+  padding: 1rem;
+}
+.npc-section .portrait-col {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0 1rem 0 0;
+}
+.npc-section .portrait-col .portrait-container {
+  max-width: 250px;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.npc-section .portrait-col .portrait-container img {
+  width: 250px;
+}
+.npc-section .npc-info-col {
+  position: relative;
+}
+.npc-section .npc-info-col .npc-name {
+  margin-top: 1rem;
+}
+.npc-section .npc-info-col div.npc-info .tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-start;
+}
+.npc-section .npc-info-col div.npc-info .tags p {
+  padding: 0;
+  font-size: 14px;
+}
+.npc-section .npc-info-col div.npc-info .tags p span {
+  border: 1px solid white;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+.npc-section .npc-info-col div.npc-info .tags p span.region-tag {
+  border-color: green;
+}
+.npc-section .npc-info-col div.npc-info .tags p span.faction-tag {
+  border-color: red;
+}
+.npc-section .npc-info-col div.npc-info .tags p span.role-tag {
+  border-color: blue;
+}
+.npc-section .npc-info-col div.npc-info .tags p span.player-tag {
+  border-color: purple;
+}
+.npc-section .npc-info-col div.npc-info .npc-description {
+  padding: 0;
+  margin-bottom: 4rem;
+  font-size: 16px;
+}
+.npc-section .npc-info-col div.npc-info p.last-seen {
+  background: rgba(253, 175, 123, 0.2);
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
 }/*# sourceMappingURL=style.css.map */

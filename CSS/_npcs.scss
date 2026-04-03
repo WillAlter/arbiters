@@ -11,10 +11,9 @@ main {
 
 section.npc-section {
     border-radius: 4px;
-    margin-bottom: 2rem;
     background-color: #22222299;
     width: 80%;
-    margin-top: 8rem;
+    margin-top: 2rem;
 
     .row {
         display: flex;
@@ -39,7 +38,7 @@ section.npc-section {
                 width: 100px;
                 height: 20px;
                 transform: skew(-12deg) translateX(-50%);
-                background: rgba($soft-orange,0.8);
+                background: rgba($soft-orange, 0.8);
                 z-index: -1;
             }
         }
@@ -56,7 +55,7 @@ section.npc-section {
             padding: 0 6rem 1.5rem 6rem;
         }
 
-        .image-column{
+        .image-column {
             display: flex;
             justify-content: flex-end;
 
@@ -72,7 +71,7 @@ section.npc-section {
         }
 
         .image-column-reverse {
-            display:flex;
+            display: flex;
             justify-content: flex-start;
 
             .portrait {
@@ -86,5 +85,108 @@ section.npc-section {
             }
         }
 
+    }
+}
+
+.form-container {
+    margin-top: 2rem;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    label {
+        color: white;
+    }
+}
+
+.npc-section {
+
+    border-radius: 4px;
+    padding: 1rem;
+
+    .portrait-col {
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        padding: 0 1rem 0 0;
+
+        .portrait-container {
+            max-width: 250px;
+            max-height: 300px;
+            overflow: hidden;
+            border-radius: 4px;
+
+            img {
+                width: 250px;
+            }
+        }
+    }
+
+    .npc-info-col {
+
+        position: relative;
+
+        .npc-name {
+            margin-top: 1rem;
+        }
+
+        div.npc-info {
+
+            .tags {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 4px;
+                justify-content: flex-start;
+
+
+                p {
+                    padding: 0;
+                    font-size: 14px;
+
+                    span {
+                        border: 1px solid white;
+                        padding: 2px 4px;
+                        border-radius: 4px;
+
+                        &.region-tag {
+                            border-color: green;
+                        }
+
+                        &.faction-tag {
+                            border-color: red;
+                        }
+
+                        &.role-tag {
+                            border-color: blue;
+                        }
+
+                        &.player-tag {
+                            border-color: purple;
+                        }
+                    }
+                }
+            }
+
+            .npc-description {
+                padding: 0;
+                margin-bottom: 4rem;
+                font-size: 16px;
+            }
+
+            p.last-seen {
+                background: rgba($soft-orange, 0.2);
+                font-size: 14px;
+                border-radius: 4px;
+                padding: 2px 6px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+            }
+        }
     }
 }
